@@ -18,16 +18,7 @@
  */
 package org.jsweet.transpiler.extension;
 
-import java.util.AbstractMap;
-import java.util.AbstractSet;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -93,6 +84,9 @@ public class RemoveJavaDependenciesES6Adapter extends RemoveJavaDependenciesAdap
 			this.substituteNewMap(newClass);
 			return true;
 		}
+		if (Optional.class.getName().equals(className)) {
+			this.substituteOptional(newClass);
+		}
 
 		return super.substituteNewClass(newClass);
 	}
@@ -120,6 +114,10 @@ public class RemoveJavaDependenciesES6Adapter extends RemoveJavaDependenciesAdap
 		} else {
 			print("new Map(").print(newClass.getArgument(0)).print(")");
 		}
+	}
+
+	private void substituteOptional(NewClassElement newClass) {
+		print(newClass.getArgument(0)).print("?");
 	}
 
 	@Override

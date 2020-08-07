@@ -31,36 +31,7 @@ import java.lang.reflect.Method;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.text.Collator;
-import java.util.AbstractList;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Deque;
-import java.util.EnumSet;
-import java.util.Enumeration;
-import java.util.EventObject;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Queue;
-import java.util.Set;
-import java.util.Stack;
-import java.util.TimeZone;
-import java.util.TreeMap;
-import java.util.TreeSet;
-import java.util.Vector;
-import java.util.WeakHashMap;
+import java.util.*;
 
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
@@ -165,6 +136,7 @@ public class RemoveJavaDependenciesAdapter extends Java2TypeScriptAdapter {
 		extTypesMapping.put(InputStream.class.getName(), "{ str: string, cursor: number }");
 		extTypesMapping.put(InputStreamReader.class.getName(), "{ str: string, cursor: number }");
 		extTypesMapping.put(BufferedReader.class.getName(), "{ str: string, cursor: number }");
+		extTypesMapping.put(Optional.class.getName(), "any");
 
 		extTypesMapping.put(Method.class.getName(), "{ owner: any, name: string, fn : Function }");
 

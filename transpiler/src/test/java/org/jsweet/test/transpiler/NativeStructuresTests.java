@@ -39,6 +39,7 @@ import source.nativestructures.Reflect;
 import source.nativestructures.Sets;
 import source.nativestructures.Strings;
 import source.nativestructures.WeakReferences;
+import source.optional.Optionals;
 
 public class NativeStructuresTests extends AbstractTest {
 
@@ -78,6 +79,13 @@ public class NativeStructuresTests extends AbstractTest {
 		eval((logHandler, result) -> {
 			logHandler.assertNoProblems();
 		}, getSourceFile(Sets.class));
+	}
+
+	@Test
+	public void testOptionals() {
+		eval((logHandler, result) -> {
+			logHandler.assertNoProblems();
+		}, getSourceFile(Optionals.class));
 	}
 	
 	@Test
